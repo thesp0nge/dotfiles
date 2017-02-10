@@ -1,6 +1,11 @@
 execute pathogen#infect()
-syntax on
-filetype plugin indent on
+
+set nocompatible      " We're running Vim, not Vi!
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
 set background=dark
 colorscheme solarized
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab expandtab
