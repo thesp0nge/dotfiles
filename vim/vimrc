@@ -5,7 +5,13 @@ syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
-
-set background=dark
-colorscheme solarized
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab expandtab
+
+if has("gui_running")
+  set background=dark
+  let g:solarized_termtrans=1
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  let g:solarized_visibility="high"
+  colorscheme solarized
+endif
