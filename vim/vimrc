@@ -16,7 +16,8 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
+" colorscheme solarized
+colorscheme nord
 
 " UI Config
 set number
@@ -88,3 +89,13 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    if has("gui")
+      set macligatures
+    endif
+    set guifont=Fira\ Code:h12
+  endif
+endif
