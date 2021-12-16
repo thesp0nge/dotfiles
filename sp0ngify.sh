@@ -8,7 +8,7 @@ if [ ! -x $WGET ]; then
 fi
 
 echo "[+] Installing TMUX in .config/tmux"
-TMUX_DATA="https://github.com/thesp0nge/dotfiles/blob/e4516e6238cd5969132913b7c985d54703b4ad5d/data/tmux.tar.gz"
+TMUX_DATA="https://github.com/thesp0nge/dotfiles/raw/master/data/tmux.tar.gz"
 TMUX_DST=$CONF_DST"/tmux"
 TMUX_LN=$HOME"/.tmux.conf"
 
