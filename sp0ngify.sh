@@ -36,4 +36,5 @@ fi
 ln -s $TMUX_DST"/tmux.conf" $TMUX_LN
 ln -s $TMUX_DST $HOME"/.tmux"
 
-echo $TMUX_DST
+rm tmux.tar.gz
+echo "[*] tmux configuration installed. Please lunch tmux and press ^A+I to install plugins"
