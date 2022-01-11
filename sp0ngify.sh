@@ -34,5 +34,6 @@ else
 fi
 
 ln -s $TMUX_DST"/tmux.conf" $TMUX_LN
+ln -s $TMUX_DST $HOME"/.tmux"
 
 echo $TMUX_DST
