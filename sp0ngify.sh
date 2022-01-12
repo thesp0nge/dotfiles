@@ -67,8 +67,10 @@ function install_zsh {
         git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     fi
 
-    $WGET https://raw.githubusercontent.com/thesp0nge/dotfiles/master/zsh/zshrc
+    $WGET https://raw.githubusercontent.com/thesp0nge/dotfiles/master/data/zshrc
+    $WGET https://raw.githubusercontent.com/thesp0nge/dotfiles/master/data/p10k.sh
     mv zshrc $HOME/.zshrc
+    mv p10k.sh $HOME/.p10k.sh
     ZSH=`which zsh`
     CHSH=`which chsh`
     $CHSH -s $ZSH
