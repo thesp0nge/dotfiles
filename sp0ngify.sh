@@ -87,7 +87,7 @@ function install_vim {
         return 3
     fi
     mkdir -p $HOME/.config/vim
-    mv vim $HOME/.config/vim
+    mv vim $HOME/.config
 
     ln -s $HOME/.config/vim $HOME/vim
     ln -s $HOME/.config/vim/vimrc $HOME/.vimrc
