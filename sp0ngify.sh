@@ -82,7 +82,7 @@ function install_vim {
 
     $WGET https://raw.githubusercontent.com/thesp0nge/dotfiles/master/data/vim.tar.gz
     tar xfv vim.tar.gz
-    if [ -d $HOME/.vim || -d $HOME/.config/vim || -e $HOME/.config/.vimrc ]; then
+    if [[ -d $HOME/.vim || -d $HOME/.config/vim || -e $HOME/.config/.vimrc ]]; then
         echo "[!] vim is already configured. Remove vim configuration and then run the script again"
         return 3
     fi
