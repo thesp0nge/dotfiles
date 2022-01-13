@@ -78,12 +78,40 @@ function install_zsh {
     return 0
 }
 
+function install_vim {
+
+    $WGET https://raw.githubusercontent.com/thesp0nge/dotfiles/master/data/vim.tar.gz
+    tar xfv vim.tar.gz
+    if [ -d $HOME/.vim || -d $HOME/.config/vim || -e $HOME/.config/.vimrc ]; then
+        echo "[!] vim is already configured. Remove vim configuration and then run the script again"
+        return 3
+    fi
+    mkdir -p $HOME/.config/vim
+    mv vim $HOME/.config/vim
+
+    ln -s $HOME/.config/vim $HOME/vim
+    ln -s $HOME/.config/vim/vimrc $HOME/.vimrc
+
+    return 0
+}
+
 echo "[*] setting up environment for $LOGNAME"
 install_tmux
 if [ $? -eq 3 ]; then
+    echo "[!] setup not fully configuredi. Giving up"
     exit 1
 fi
 install_zsh
 if [ $? -eq 3 ]; then
+    echo "[!] setup not fully configuredi. Giving up"
+    exit 1
+fi
+echo "[*] installing dir_colors from NORD"
+$WGET https://raw.githubusercontent.com/arcticicestudio/nord-dircolors/develop/src/dir_colors
+mv dir_colors $HOME/.dir_colors
+
+install_vim
+if [ $? -eq 3 ]; then
+    echo "[!] setup not fully configuredi. Giving up"
     exit 1
 fi
