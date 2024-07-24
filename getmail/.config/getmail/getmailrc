@@ -1,0 +1,20 @@
+# https://wiki.archlinux.org/title/Getmail
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = imap.suse.de
+# this is the alias of the service as configured in the web interface
+username = pperego@mail
+mailboxes = ("INBOX", "INBOX/Spam")
+password=
+# password_command = ("/usr/bin/pass", "email/imap.suse.de")
+
+[options]
+read_all = False
+delete = false
+delete_after = 30
+message_log = ~/.config/getmail/.getmail.log
+
+[destination]
+type = MDA_external
+path = /usr/bin/maildrop
+arguments = ("-d", "thesp0nge")
