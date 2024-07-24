@@ -11,6 +11,9 @@ Tmux has a very simple configuration based on TPM as a plugin manager and catppu
 Make sure password is in your keyring
 
 ## systemd
+Ensure python keyring library is enabled.
+
+First run: getmail --store-password-in-keyring enter the password and exit
 
 Enable the services
 ```
