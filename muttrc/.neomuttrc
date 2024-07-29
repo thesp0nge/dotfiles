@@ -1,0 +1,173 @@
+# some aliases
+alias myself_home paolo@codiceinsicuro.it
+alias myself_work pperego@suse.de
+alias myself_all myself_home, myself_work
+alias proactive jsegitz@suse.de matthias.gerstner@suse.com fbonazzi@suse.com wolfgang.frisch@suse.de
+alias stoyan stoyan.manolov@suse.com
+alias johannes jsegitz@suse.com
+alias mgerstner Matthias Gerstner <mgerstner@suse.de>
+alias fbonazzi Filippo Bonazzi <fbonazzi@suse.de>
+alias security-team SUSE Security Team <security-team@suse.de>
+alias suma-dev SUMA Developers <galaxy-bugs@suse.de>
+
+
+# some extra info
+my_hdr X-Responsible-Disclosure: https://en.opensuse.org/openSUSE:Security_disclosure_policy
+
+# using vim for working with mails
+#set pager="/usr/bin/vim -c 'set tw=72'"
+set editor="/usr/bin/vim -c 'set tw=72'"
+
+set realname="Paolo Perego"
+# recognize these From identities as myself
+alternates "(p.*perego@suse\.de)|(p.*perego@suse\.com)"
+set reverse_name
+set folder="~/.mail"
+set mbox_type=Maildir
+set spoolfile="~/.mail"
+set mask="!^\\.[^.]"
+set record="+.Sent"
+set postponed="+.Drafts"
+# additionally ask for CC on new mail creation
+set askcc=yes
+# causes the domain to be suse.de such that mails to the outside work, too
+# set hostname="kasco.suse.de"
+
+# this determines whether mail addresses without domain part will be suffixed
+# by the currently determined hostname
+#set use_domain=no
+# if set then not the complete hostname will be suffixed but only the domain
+# part
+set hidden_host=yes
+# show threaded discussions in a tree view
+set sort=threads
+
+# enables forwarding of MIME attachments when forwarding mails
+set mime_forward=ask-yes
+set mime_forward_rest=ask-yes
+
+# our signature, still coming from good old Thunderbird
+set signature="~/.config/signature"
+# put the signature at the top for top posting style ... (otherwise it is
+# forgotten at the bottom sometimes)
+set sig_on_top=no
+
+# COLOR SCHEME
+source /home/thesp0nge/.config/mail-setup/colorschemes/nord.theme
+
+# this is important for msmtp for work right, different default sender
+# addresses for different mail folders, by default on reply the appropriate
+# address is chosen automatically.
+folder-hook . set from="pperego@suse.de"
+
+set use_from=yes
+set envelope_from=yes
+set use_envelope_from=yes
+set index_format="%4C %Z %{%d.%b.%Y %H:%M} %-25.25L (%5c) %s"
+set sendmail="/usr/bin/msmtp"
+
+# mailbox setup
+
+mailboxes "!" + `\
+for file in ~/.mail/.[a-zA-Z]*; do \
+	box=$(basename "$file"); \
+	if [ ! "$box" = '.customflags' -a ! "$box" = '.subscriptions' ]; then \
+			echo -n "\"+$box\" "; \
+	fi; \
+done \
+`
+
+# TODO: Add LDAP completion as described in https://www.christianschenk.org/blog/integrating-ldap-into-mutt/
+
+# printing support from Mutt, be careful about that, default printing support
+# can sometimes backfire on weird key presses (a couple of hundred pages of
+# garbage prints anyone?)
+#set print_command="/usr/bin/muttprint -p eso.deer4DM-B01"
+
+# GPG stuff
+set crypt_use_gpgme = yes
+# Sign replies to signed emails
+set crypt_replysign = yes
+
+# Encrypt replies to encrypted emails
+set crypt_replyencrypt = yes
+
+# Encrypt and sign replies to encrypted and signed email
+set crypt_replysignencrypted = yes
+
+# Attempt to verify signatures automatically
+set crypt_verify_sig = yes
+
+
+# Automatically sign all out-going email
+set crypt_autosign = yes
+
+set pgp_decrypt_command="/usr/bin/gpg --no-verbose --batch --decrypt --output - %f"
+set pgp_decode_command="/usr/bin/gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="/usr/bin/gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_sign_command="/usr/bin/gpg --no-verbose --batch --output - --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="/usr/bin/gpg --no-verbose --batch --output - --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap /usr/bin/gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0x60806294B -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap /usr/bin/gpg --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x0A1A20039AE0B09C51A47ACDFC0DCEA60806294B -- -r %r -- %f"
+set pgp_import_command="/usr/bin/gpg --no-verbose --import -v %f"
+set pgp_export_command="/usr/bin/gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="/usr/bin/gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="/usr/bin/gpg --no-verbose --batch --with-colons --with-fingerprint --list-keys %r"
+set pgp_list_secring_command="/usr/bin/gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_self_encrypt=yes
+set pgp_self_encrypt_as=0x0A1A20039AE0B09C51A47ACDFC0DCEA60806294B
+set pgp_autosign=yes
+set pgp_sign_as=0x0A1A20039AE0B09C51A47ACDFC0DCEA60806294B
+set pgp_replyencrypt=yes
+set pgp_replysignencrypted=yes
+set pgp_replysign=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: Good signature from"
+set pgp_use_gpg_agent=yes
+set crypt_use_gpgme=yes
+
+# sidebar settings
+set sidebar_width=30
+set sidebar_visible=yes
+set sidebar_format="%B%<F? [%F]>%* %<N?%N/>%S"
+set mail_check_stats
+
+# this enables html to be treated according to .mailcap settings (use elinks)
+auto_view text/html
+auto_view text/calendar
+
+# S/MIME related stuff
+#set smime_keys="~/.smime/keys"
+#set smime_certificates="~/.smime/certificates"
+#set smime_ca_location="~/.smime/ca-ncp.crt"
+
+# prefer calendar info over plain text over HTML
+alternative_order text/calendar text/plain text/enriched text/html
+
+# shortcut to go to outbound / inbound eMails
+macro index \Co "<change-folder> =.Sent" "Goto sent mails"
+#macro index \Cj "<change-folder> =.stuff" "Goto inbox"
+
+# https://brianbuccola.com/how-to-mark-all-emails-as-read-in-mutt/
+macro index A \
+    "<tag-pattern>~N | ~O<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+        "mark all new as read"
+
+# https://github.com/nofeed/vkhal/
+macro attach K \
+	"<enter-command>unset wait_key<enter> \
+		<shell-escape>rm -f /tmp/events.ics<enter>\
+<save-entry><kill-line>/tmp/events.ics<enter>\
+<shell-escape> vkhal -k /tmp/events.ics<enter>\
+"
+
+macro index <F7> \
+      "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+      "notmuch: search mail"
+macro index <F8> \
+      "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+      "notmuch: reconstruct thread"
+
+# only show more interesting mail headers by default
+ignore *
+unignore from date to cc subject sender list-id

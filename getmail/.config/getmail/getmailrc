@@ -5,7 +5,6 @@ server = imap.suse.de
 # this is the alias of the service as configured in the web interface
 username = pperego@mail
 mailboxes = ("INBOX", "INBOX/Spam")
-password=
 # password_command = ("/usr/bin/pass", "email/imap.suse.de")
 
 [options]
