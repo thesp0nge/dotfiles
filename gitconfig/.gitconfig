@@ -1,0 +1,19 @@
+[includeIf "gitdir:hacking/"]
+    path = .gitconfig-github
+[includeIf "gitdir:blogs/"]
+    path = .gitconfig-github
+[includeIf "gitdir:Documents/Talks/"]
+    path = .gitconfig-github
+[includeIf "gitdir:.vim/"]
+    path = .gitconfig-github
+[includeIf "gitdir:work/"]
+  path = .gitconfig-suse
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
+[user]
+	email = paolo.perego@suse.com
+	name = Paolo Perego
+[commit]
+	gpgsign = true
