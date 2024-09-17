@@ -1,3 +1,4 @@
+*.sw?
 vim/.netrwhist
 getmail/.config/getmail/.getmail.log
 getmail/.config/getmail/oldmail-imap.suse.de-993-pperego@mail-INBOX
