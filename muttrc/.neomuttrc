@@ -8,7 +8,7 @@ alias johannes jsegitz@suse.com
 alias mgerstner Matthias Gerstner <mgerstner@suse.de>
 alias fbonazzi Filippo Bonazzi <fbonazzi@suse.de>
 alias security-team SUSE Security Team <security-team@suse.de>
-alias suma-dev SUMA Developers <galaxy-bugs@suse.de>
+alias suma-dev SUMA Developers <galaxy-devel@suse.de>
 alias suma-security-champions johannes.hahn@suse.com, jsegitz@suse.com, wiktor.maj@suse.com
 
 # some extra info
