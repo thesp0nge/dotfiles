@@ -8,12 +8,12 @@
     path = .gitconfig-github
 [includeIf "gitdir:work/"]
   path = .gitconfig-suse
+[includeIf "gitdir:Documents/linux-next"]
+  path = .gitconfig-kernel
 [color]
 	ui = auto
 [init]
 	defaultBranch = main
 [user]
-	email = paolo.perego@suse.com
-	name = Paolo Perego
-[commit]
-	gpgsign = true
+  name = "Paolo Perego"
+  email = paolo.perego@suse.com

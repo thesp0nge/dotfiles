@@ -184,6 +184,15 @@ if( /^List-Id:.*oss-security.lists.openwall.com/:h )
 # 	to "$HOME/.mail/.list_gnome"
 # }
 
+if( /^List-Id:.*zsh-workers.zsh.org/:h )
+{
+	to "$HOME/.mail/.zsh-workers"
+}
+if( /^List-Id:.*zsh-users.zsh.org/:h )
+{
+	to "$HOME/.mail/.zsh-users"
+}
+
 if( /^(To|Cc).*security@ceph.com.*/:h || /^(To|Cc).*security@ceph.io.*/ )
 {
 	FLAGS="S"
@@ -297,9 +306,19 @@ if( /^(To|Cc): .*security-team@suse.de/:h )
 	}
 }
 
+if ( /^List-Id:.*kernelnewbies.kernelnewbies.org/:h )
+{
+  to "$HOME/.mail/.kernelnewbies"
+}
+
+if ( /^List-Id:.*kernel-janitors.vger.kernel.org/:h )
+{
+  to "$HOME/.mail/.kernel-janitors"
+}
+
 # anything else security external etc.
 
-if( /^(To|Cc): .*security@suse.de/:h || /^Subject: .*security@suse.de.*/:h || /^List-Id:.*security.suse.de/:h )
+if( /^(To|Cc): .*security@suse.de/:h || /^Subject: .*security@suse.de.*/:h || /^List-Id:.*security.suse.de/:h || /^List-Id:.*security-team.suse.de/:h )
 {
 	#`$HOME/bin/mail_status.py -n "security"`
 	to "$HOME/.mail/.security"
@@ -393,4 +412,4 @@ if( /^X-Spam-Flag: YES/:h )
 }
 
 # anything else is highly suspected to be spam
-to "$HOME/.spam"
+to "$HOME/.mail/.spam"

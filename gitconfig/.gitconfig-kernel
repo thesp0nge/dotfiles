@@ -1,0 +1,12 @@
+[user]
+  email = pperego@suse.de
+  name  = Paolo Perego
+
+[alias]
+    cmt_sgd = commit --signoff
+
+[sendemail]
+      smtpencryption  = tls
+      smtpuser        = pperego@mail
+      smtpserver      = imap.suse.de
+      smtpserverport  = 587

@@ -1,3 +1,5 @@
 [user]
-	name = Paolo Perego
-	email = paolo@codiceinsicuro.it
+  name = Paolo Perego
+  email = paolo@codiceinsicuro.it
+[commit]
+	gpgsign = true

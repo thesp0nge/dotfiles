@@ -1,3 +1,4 @@
+alias "mkdir"="mkdir -v"
 alias "cp"="cp -v"
 alias "captive_portal"="xdg-open http://$(ip --oneline route get 8.8.8.8 | awk '{print $3}')"
 alias "vim"="nvim"
