@@ -1,5 +1,7 @@
 # My dotfiles collection
 
+My dotfiles collection to be installed with stow command line utility.
+
 ## Tmux
 
 Tmux has a very simple configuration based on TPM as a plugin manager and
