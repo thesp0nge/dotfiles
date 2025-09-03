@@ -5,43 +5,6 @@
 # if nothing else matches then mails end up here
 DEFAULT="$HOME/.mail/"
 
-# general spam stuff
-
-#if( /^From: ID WORLD/:h )
-#{
-#	to "$HOME/.mail/.spam"
-#}
-
-# if( /^From: .*newsletter.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
-# if( /^From: .*SUSE Confluence Recommended.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
-# if( /^From: .*partnernet.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
-# if( /^From: .*twitter.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
-# if( /^Subject: .*Watches.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
-# if( /^From: .*sophos.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
 if( /^From: .*news@suse.*/:h )
 {
 	to "$HOME/.mail/.suse_communications"
@@ -51,18 +14,6 @@ if( /^From: .*SUSEComms@suse.*/:h && /^To:.*all@suse.*/:h )
 {
 	to "$HOME/.mail/.suse_communications"
 }
-
-
-# if( /^From: .*news@.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
-# if( /^From: .*info@.*/:h )
-# {
-# 	to "$HOME/.mail/.spam"
-# }
-
 
 # filter out uninteresting agent mails
 
@@ -316,6 +267,11 @@ if ( /^List-Id:.*kernel-janitors.vger.kernel.org/:h )
   to "$HOME/.mail/.kernel-janitors"
 }
 
+if ( /^List-Id:.*distro-security-team-meetup.groups.io/:h )
+{
+    to "$HOME/.mail/.distro-security-meetup"
+}
+
 # anything else security external etc.
 
 if( /^(To|Cc): .*security@suse.de/:h || /^Subject: .*security@suse.de.*/:h || /^List-Id:.*security.suse.de/:h || /^List-Id:.*security-team.suse.de/:h )
@@ -410,6 +366,7 @@ if( /^X-Spam-Flag: YES/:h )
 {
 	to "$HOME/.mail/.spam"
 }
-
-# anything else is highly suspected to be spam
-to "$HOME/.mail/.spam"
+else
+{
+  to "$DEFAULT"
+}

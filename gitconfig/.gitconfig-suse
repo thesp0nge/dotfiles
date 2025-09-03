@@ -3,4 +3,4 @@
   email = paolo.perego@suse.com
   signingkey = FC0DCEA60806294B
 [commit]
-	gpgsign = true
+  gpgsign = true

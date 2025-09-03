@@ -1,4 +1,4 @@
-[includeIf "gitdir:hacking/"]
+[includeIf "gitdir:Documents/Personal/"]
     path = .gitconfig-github
 [includeIf "gitdir:blogs/"]
     path = .gitconfig-github
@@ -6,7 +6,7 @@
     path = .gitconfig-github
 [includeIf "gitdir:.vim/"]
     path = .gitconfig-github
-[includeIf "gitdir:work/"]
+[includeIf "gitdir:Documents/Work/"]
   path = .gitconfig-suse
 [includeIf "gitdir:Documents/linux-next"]
   path = .gitconfig-kernel

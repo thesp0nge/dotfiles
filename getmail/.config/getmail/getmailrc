@@ -8,8 +8,10 @@ mailboxes = ("INBOX", "INBOX/Spam")
 # password_command = ("/usr/bin/pass", "email/imap.suse.de")
 
 [options]
-read_all = False
+read_all = false
 delete = false
+delivered_to = false
+received = false
 delete_after = 30
 message_log = ~/.config/getmail/.getmail.log
 

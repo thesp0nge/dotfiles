@@ -1,5 +1,6 @@
 [user]
   name = Paolo Perego
   email = paolo@codiceinsicuro.it
+  signingkey = FC0DCEA60806294B
 [commit]
-	gpgsign = true
+  gpgsign = true

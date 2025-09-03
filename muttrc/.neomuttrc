@@ -10,6 +10,8 @@ alias fbonazzi Filippo Bonazzi <fbonazzi@suse.de>
 alias security-team SUSE Security Team <security-team@suse.de>
 alias suma-dev SUMA Developers <galaxy-devel@suse.de>
 alias suma-security-champions johannes.hahn@suse.com, jsegitz@suse.com, wiktor.maj@suse.com
+alias kernel-janitors Kernel Janitor Project <kernel-janitors@vger.kernel.org>
+alias kernel-newbies Kernel Newbies <kernelnewbies@kernelnewbies.org>
 
 # some extra info
 my_hdr X-Responsible-Disclosure: https://en.opensuse.org/openSUSE:Security_disclosure_policy
