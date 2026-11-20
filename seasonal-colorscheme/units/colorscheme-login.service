@@ -1,0 +1,11 @@
+[Unit]
+Description=Apply seasonal colors after graphical login
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/colorscheme apply
+
+[Install]
+WantedBy=graphical-session.target
