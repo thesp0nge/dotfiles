@@ -1,0 +1,6 @@
+[Unit]
+Description=Apply the selected seasonal colorscheme
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/colorscheme apply
